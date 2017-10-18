@@ -1,6 +1,5 @@
 package me.HariboPenguin.PermissionFinder;
 
-import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -9,11 +8,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.Plugin;
 
+import java.util.List;
+
 public class FindCommand implements CommandExecutor {
 
-    public PermissionFinder plugin;
+    private PermissionFinder plugin;
 
-    public FindCommand(PermissionFinder instance) {
+    FindCommand(PermissionFinder instance) {
         this.plugin = instance;
     }
 
@@ -82,7 +83,7 @@ public class FindCommand implements CommandExecutor {
         return true;
     }
 
-    public Plugin getPlugin(String pluginName) {
+    private Plugin getPlugin(String pluginName) {
 
         for (Plugin pl : Bukkit.getServer().getPluginManager().getPlugins()) {
             if (pl.getDescription().getName().equalsIgnoreCase(pluginName)) {

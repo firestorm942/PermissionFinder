@@ -1,13 +1,5 @@
 package me.HariboPenguin.PermissionFinder;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -16,11 +8,20 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.Plugin;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class DumpCommand implements CommandExecutor {
 
-    public PermissionFinder plugin;
+    private PermissionFinder plugin;
 
-    public DumpCommand(PermissionFinder instance) {
+    DumpCommand(PermissionFinder instance) {
         this.plugin = instance;
     }
 
@@ -183,7 +184,7 @@ public class DumpCommand implements CommandExecutor {
         return true;
     }
 
-    public Plugin getPlugin(String pluginName) {
+    private Plugin getPlugin(String pluginName) {
 
         for (Plugin pl : Bukkit.getServer().getPluginManager().getPlugins()) {
             if (pl.getDescription().getName().equalsIgnoreCase(pluginName)) {
